@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Comment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #333; /* Black background */
+            color: #fff; /* White text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Position relative to position the arrow */
+        }
+        .container {
+            background-color: #444; /* Darker gray for container */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #555; /* Slightly lighter gray for textarea */
+            color: #fff; /* White text in textarea */
+            border: 1px solid #777; /* Silver border */
+            border-radius: 5px;
+        }
+        .container button {
+            padding: 10px;
+            background-color: #c0c0c0; /* Silver background for button */
+            color: black; /* Black text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #a0a0a0; /* Slightly darker silver */
+        }
+        .back-arrow {
+            position: absolute;
+            top: 20px; /* Adjusted position from the top */
+            left: 20px; /* Adjusted position from the left */
+            font-size: 36px; /* Larger arrow */
+            color: #c0c0c0; /* Silver color for the arrow */
+            text-decoration: none;
+        }
+        .back-arrow:hover {
+            color: #fff; /* White on hover */
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('dashboard') }}" class="back-arrow">&#8592;</a> <!-- Arrow to return to dashboard -->
+    <div class="container">
+        <h1>Add Comment</h1>
+        <form action="{{ url_for('add_comment', task_id=task_id) }}" method="POST">
+            <textarea name="content" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Comments</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000; /* Black background */
+            color: #c0c0c0; /* Silver text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Position relative to place the arrow */
+            flex-direction: column;
+        }
+        .container {
+            background-color: #333; /* Dark gray for container */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 60%;
+        }
+        .task {
+            margin-bottom: 20px;
+        }
+        .comments {
+            list-style-type: none;
+            padding: 0;
+        }
+        .comment {
+            background-color: #444; /* Slightly lighter gray for comments */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .comment h4 {
+            margin: 0;
+            color: #c0c0c0; /* Silver color for comment header */
+        }
+        .comment p {
+            margin: 5px 0 0 0;
+            color: #c0c0c0; /* Silver color for comment content */
+        }
+        .comment small {
+            color: #888; /* Lighter gray for timestamps */
+        }
+        .add-comment {
+            margin-top: 20px;
+        }
+        .add-comment a {
+            text-decoration: none;
+            color: #c0c0c0; /* Silver color for link */
+            font-weight: bold;
+        }
+        .add-comment a:hover {
+            color: #fff; /* White on hover */
+        }
+        .back-arrow {
+            position: absolute;
+            top: 10px; /* Position from the top */
+            left: 10px; /* Position from the left */
+            font-size: 32px; /* Larger arrow */
+            color: #c0c0c0; /* Silver color for the arrow */
+            text-decoration: none;
+        }
+        .back-arrow:hover {
+            color: #fff; /* White on hover */
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('dashboard') }}" class="back-arrow">&#8592;</a> <!-- Arrow to return to dashboard -->
+    <div class="container">
+        <div class="task">
+            <h2>{{ task.title }}</h2>
+            <p>{{ task.description }}</p>
+        </div>
+        <ul class="comments">
+            {% for comment in comments %}
+            <li class="comment">
+                <h4>{{ comment.user_id }}</h4>
+                <p>{{ comment.content }}</p>
+                <small>{{ comment.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="add-comment">
+            <a href="{{ url_for('add_comment', task_id=task.id) }}">Add a Comment</a>
+        </div>
+    </div>
+</body>
+</html>

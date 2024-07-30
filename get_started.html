@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>article - Get Started</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom right, #000000, #333333); /* Black and dark gray gradient */
+            margin-top: 50px;
+            color: #c0c0c0; /* Silver text */
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #c0c0c0; /* Silver color for header */
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 20px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            color: #c0c0c0; /* Silver text */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #444; /* Dark gray background */
+        }
+        .button-login {
+            background-color: #666; /* Darker gray for login button */
+        }
+        .button-register {
+            background-color: #888; /* Slightly lighter gray for register button */
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button-login:hover {
+            background-color: #555; /* Darker gray on hover */
+        }
+        .button-register:hover {
+            background-color: #777; /* Darker gray on hover */
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 255, 0.5); /* Neon cyan color */
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
+            z-index: 0;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>post some blogs</h1>
+    <div class="button-container">
+        <button class="button button-login" onclick="window.location.href='/login'">
+            <img src="https://img.icons8.com/ios-filled/50/000000/crown.png" alt="Crown" class="icon" />
+            Login
+        </button>
+        <button class="button button-register" onclick="window.location.href='/register'">
+            <img src="https://img.icons8.com/ios-filled/50/000000/crown.png" alt="Crown" class="icon" />
+            Register
+        </button>
+    </div>
+</body>
+</html>

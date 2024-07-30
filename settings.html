@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000; /* Black background */
+            color: #c0c0c0; /* Silver text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Position relative to place the arrow */
+        }
+        .settings-container {
+            background-color: #333; /* Dark gray for container */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px; /* Optional: limit the width of the container */
+        }
+        .settings-container h2 {
+            margin-bottom: 20px;
+            color: #c0c0c0; /* Silver color for header */
+        }
+        .settings-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .settings-container input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #666; /* Darker silver border */
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #444; /* Slightly lighter gray for inputs */
+            color: #c0c0c0; /* Silver text in inputs */
+        }
+        .settings-container button {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #c0c0c0; /* Silver background for button */
+            color: black; /* Black text */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .settings-container button:hover {
+            transform: scale(1.1);
+            background-color: #a0a0a0; /* Slightly darker silver */
+        }
+        .back-arrow {
+            position: absolute;
+            top: 10px; /* Position from the top */
+            left: 10px; /* Position from the left */
+            font-size: 32px; /* Larger arrow */
+            color: #c0c0c0; /* Silver color for the arrow */
+            text-decoration: none;
+        }
+        .back-arrow:hover {
+            color: #fff; /* White on hover */
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('dashboard') }}" class="back-arrow">&#8592;</a> <!-- Arrow to return to dashboard -->
+    <div class="settings-container">
+        <h2>Settings</h2>
+        <form method="POST" action="/settings">
+            <input type="text" name="username" placeholder="New Username" value="{{ user.name }}">
+            <input type="password" name="password" placeholder="New Password">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>
